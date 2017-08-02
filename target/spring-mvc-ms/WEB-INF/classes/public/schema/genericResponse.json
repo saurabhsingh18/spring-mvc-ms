@@ -1,0 +1,26 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": false,
+    "definitions": {},    
+    "properties": {        
+        "resultCode": {       
+            
+            "type": "string"
+        },
+        "resultDescription": {           
+            "type": "string"
+        },
+        "executionTime": {           
+            "type": "integer"
+        },
+        "resultObj": {          
+            "type": "null"
+        }
+    },
+    "required": [        
+        "resultCode",
+        "resultDescription",
+        "executionTime"
+    ],
+    "type": "object"
+}
