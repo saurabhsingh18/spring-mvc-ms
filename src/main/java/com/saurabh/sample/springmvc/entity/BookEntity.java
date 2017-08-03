@@ -34,9 +34,9 @@ public class BookEntity {
 	@Column(name = "TAGS")
 	private String tags;
 
-	@OneToOne(fetch = FetchType.LAZY)
+/*	@OneToOne(fetch = FetchType.LAZY)
 	@MapsId
-	private BookPropertiesEntity properties;
+	private BookPropertiesEntity properties;*/
 
 	public long getBookId() {
 		return bookId;
@@ -78,12 +78,12 @@ public class BookEntity {
 		this.tags = tags;
 	}
 
-	public BookPropertiesEntity getProperties() {
+/*	public BookPropertiesEntity getProperties() {
 		return properties;
 	}
 
 	public void setProperties(BookPropertiesEntity properties) {
 		this.properties = properties;
-	}
+	}*/
 
 }

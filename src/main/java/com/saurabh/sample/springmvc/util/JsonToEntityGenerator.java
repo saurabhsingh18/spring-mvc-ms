@@ -11,6 +11,10 @@ public class JsonToEntityGenerator {
 
 	public static BookEntity generateBookEntity(Book book) {
 		BookEntity bookEntity = new BookEntity();
+		bookEntity.setTitle(book.getTitle());
+		bookEntity.setAuthor(book.getAuthor());
+		bookEntity.setPrice(book.getPrice());
+		bookEntity.setTags(book.getTags());
 		return bookEntity;
 	}
 

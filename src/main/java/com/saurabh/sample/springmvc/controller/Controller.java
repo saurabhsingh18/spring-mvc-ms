@@ -13,13 +13,13 @@ import com.saurabh.sample.springmvc.json.object.Books;
 import com.saurabh.sample.springmvc.service.BooksManagementService;
 
 @RestController
-@RequestMapping(value = "/bms", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/bms"/*, produces = MediaType.APPLICATION_JSON_VALUE*/)
 public class Controller {
 
 	@Autowired
 	private BooksManagementService booksManagementService;
 	
-	@RequestMapping(value = "/getMessage/{name}")
+	@RequestMapping(value = "/getMessage/{name}", method = RequestMethod.GET)
 	public String getMessage(@PathVariable String name, ModelMap model) {
 		String greet = " Hello !!!" + name + " How are You?";
 		model.addAttribute("greet", greet);
