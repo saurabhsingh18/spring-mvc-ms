@@ -14,7 +14,7 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.saurabh.sample.springmvc")
-//@Import({DataBaseConfig.class})
+@Import({DataBaseConfig.class})
 public class AppConfig extends WebMvcConfigurerAdapter {
 
 	@Bean
