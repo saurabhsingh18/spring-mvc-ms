@@ -20,7 +20,7 @@ import com.saurabh.sample.springmvc.service.GenreManagementService;
 import com.saurabh.sample.springmvc.util.EntityToJsonGenerator;
 
 @RestController
-@RequestMapping(value = "/bms"/* , produces = MediaType.APPLICATION_JSON_VALUE */)
+@RequestMapping(value = "/bms")
 public class Controller {
 
 	@Autowired
@@ -29,38 +29,55 @@ public class Controller {
 	@Autowired
 	private GenreManagementService genreManagementService;
 
-	@RequestMapping(value = "/getMessage/{name}", method = RequestMethod.GET)
-	public String getMessage(@PathVariable String name, ModelMap model) {
-		String greet = " Hello !!!" + name + " How are You?";
-		model.addAttribute("greet", greet);
-		System.out.println(greet);
-		return greet;
+	/*
+	 * @RequestMapping(value = "/getMessage/{name}", method = RequestMethod.GET)
+	 * public String getMessage(@PathVariable String name, ModelMap model) { String
+	 * greet = " Hello !!!" + name + " How are You?"; model.addAttribute("greet",
+	 * greet); System.out.println(greet); return greet; }
+	 */
+
+	@RequestMapping(value = "/checkServerStatus", method = RequestMethod.GET)
+	public String getMessage() {
+		String message = "Service Up and Running";
+		System.out.println(message);
+		return message;
 	}
 
 	@RequestMapping(value = "/books", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public GenericResponse createBooks(@RequestBody Books books) {
 		long startTime = System.currentTimeMillis();
 		booksManagementService.createBooks(books);
-		return getResponse(startTime);
+		String message = "Books : Creation Successful";
+		return getResponse(startTime, message);
 	}
 
 	@RequestMapping(value = "/genres", method = RequestMethod.POST)
 	public GenericResponse createGenre(@RequestBody Genres genres) {
 		long startTime = System.currentTimeMillis();
 		genreManagementService.addGenres(genres);
-		return getResponse(startTime);
+		String message = "Genres : Creation Successful";
+		return getResponse(startTime, message);
 	}
 
+	@RequestMapping(value = "/genres", method = RequestMethod.DELETE)
+	public GenericResponse deleteGenre(@RequestBody Genres genres) {
+		long startTime = System.currentTimeMillis();
+		genreManagementService.deleteGenres(genres);
+		String message = "Genres : Deletion Successful";
+		return getResponse(startTime, message);
+	}
+
+	@RequestMapping(value = "/genres", method = RequestMethod.GET)
 	public Genres getAllGenres() {
 		List<GenreEntity> genreEntityList = genreManagementService.getAllGenre();
 		return EntityToJsonGenerator.generateGenresJson(genreEntityList);
 	}
 
-	private GenericResponse getResponse(Long startTime) {
+	private GenericResponse getResponse(Long startTime, String message) {
 		GenericResponse genericResponse = new GenericResponse();
 		genericResponse.setResultCode("OK-200");
-		genericResponse.setResultDescription("Success");
-		genericResponse.setExecutionTime(new Long(startTime - System.currentTimeMillis()).intValue());
+		genericResponse.setResultDescription(message);
+		genericResponse.setExecutionTime(new Long(System.currentTimeMillis()- startTime).intValue());
 		return genericResponse;
 	}
 

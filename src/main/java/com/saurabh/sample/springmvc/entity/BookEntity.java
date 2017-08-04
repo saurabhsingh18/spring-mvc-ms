@@ -18,7 +18,7 @@ public class BookEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "BOOKID")
-	private long bookId;
+	private Long bookId;
 
 	// @Column(name= "TITLE", nullable = false, unique = true, length = 15)
 	// @Column(name= "AUTHOR", precision = 1, scale = 0)
@@ -29,7 +29,7 @@ public class BookEntity {
 	private String author;
 
 	@Column(name = "PRICE")
-	private long price;
+	private Double price;
 
 	@Column(name = "TAGS")
 	private String tags;
@@ -38,11 +38,11 @@ public class BookEntity {
 	@MapsId
 	private BookPropertiesEntity properties;*/
 
-	public long getBookId() {
+	public Long getBookId() {
 		return bookId;
 	}
 
-	public void setBookId(long bookId) {
+	public void setBookId(Long bookId) {
 		this.bookId = bookId;
 	}
 
@@ -62,11 +62,11 @@ public class BookEntity {
 		this.author = author;
 	}
 
-	public long getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(long price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 

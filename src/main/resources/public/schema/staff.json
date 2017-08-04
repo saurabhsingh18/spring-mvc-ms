@@ -2,33 +2,23 @@
 	"$schema": "http://json-schema.org/draft-04/schema#",
 	"type": "object",
 	"properties": {
-		"bookId": {
+		"staffId": {
 			"type": "integer"
 		},
-		"title": {
+		"name": {
 			"type": "string",
 			"minLength": 1
 		},
-		"author": {
+		"role": {
 			"type": "string",
 			"minLength": 1
 		},
-		"price": {
-			"type": "number"
+		"address": {
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 9999
 		},
-		"status": {
-			"type": "string",
-			"minLength": 1
-		},
-		"type": {
-			"type": "string",
-			"minLength": 1
-		},
-		"language": {
-			"type": "string",
-			"minLength": 1
-		},
-		"tags": {
+		"contactnumber": {
 			"type": "string",
 			"minLength": 1
 		}

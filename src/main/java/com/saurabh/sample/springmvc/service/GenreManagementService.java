@@ -7,9 +7,9 @@ import com.saurabh.sample.springmvc.json.object.Genres;
 
 public interface GenreManagementService {
 
-	GenreEntity addGenres(Genres genres);
+	List<GenreEntity> addGenres(Genres genres);
 
-	void deleteGenre(Genres genres);
+	void deleteGenres(Genres genres);
 
 	List<GenreEntity> getAllGenre();
 

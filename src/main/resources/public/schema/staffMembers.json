@@ -1,9 +1,9 @@
 {
 	"$schema": "http://json-schema.org/draft-04/schema#",
 	"properties": {
-		"genres": {
+		"books": {
 			"items": {
-				"$ref": "genre.json"
+				"$ref": "book.json"
 			},
 			"type": "array",
 			"uniqueItems": false

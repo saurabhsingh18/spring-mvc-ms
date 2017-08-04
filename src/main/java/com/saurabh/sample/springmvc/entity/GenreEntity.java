@@ -14,16 +14,16 @@ public class GenreEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "GENREID")
-	private long genreId;
+	private Long genreId;
 
 	@Column(name = "GENRENAME")
 	private String genreName;
 
-	public long getGenreId() {
+	public Long getGenreId() {
 		return genreId;
 	}
 
-	public void setGenreId(long genreId) {
+	public void setGenreId(Long genreId) {
 		this.genreId = genreId;
 	}
 
